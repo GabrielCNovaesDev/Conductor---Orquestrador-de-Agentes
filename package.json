@@ -9,7 +9,7 @@
   "scripts": {
     "dev": "docker compose -f infra/docker-compose.yml up --build",
     "build": "npm run build --workspace=@repo/shared && npm run build --workspace=@repo/connectors && npm run build --workspace=@repo/orchestrator && npm run build --workspace=@repo/api && npm run build --workspace=@repo/web",
-    "typecheck": "npm run typecheck --workspace=@repo/shared && npm run typecheck --workspace=@repo/connectors && npm run typecheck --workspace=@repo/orchestrator && npm run typecheck --workspace=@repo/api && npm run typecheck --workspace=@repo/web",
+    "typecheck": "npm run typecheck --workspace=@repo/shared && npm run build --workspace=@repo/shared && npm run typecheck --workspace=@repo/connectors && npm run build --workspace=@repo/connectors && npm run typecheck --workspace=@repo/orchestrator && npm run build --workspace=@repo/orchestrator && npm run typecheck --workspace=@repo/api && npm run typecheck --workspace=@repo/web",
     "lint": "npm run lint --workspace=@repo/shared && npm run lint --workspace=@repo/connectors && npm run lint --workspace=@repo/orchestrator && npm run lint --workspace=@repo/api && npm run lint --workspace=@repo/web",
     "format": "prettier --write ."
   },

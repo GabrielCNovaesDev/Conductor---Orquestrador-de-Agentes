@@ -9,4 +9,4 @@ COPY packages/shared/package.json packages/shared/package.json
 RUN npm install
 COPY . .
 EXPOSE 3000
-CMD ["npm", "run", "dev", "--workspace=@repo/api"]
+CMD ["sh", "-c", "npm run build --workspace=@repo/shared && npm run build --workspace=@repo/orchestrator && npm run dev --workspace=@repo/api"]
