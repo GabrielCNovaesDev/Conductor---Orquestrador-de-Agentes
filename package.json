@@ -1,0 +1,27 @@
+{
+  "name": "multi-agent-workspace",
+  "version": "0.1.0",
+  "private": true,
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "dev": "docker compose -f infra/docker-compose.yml up --build",
+    "build": "npm run build --workspace=@repo/shared && npm run build --workspace=@repo/connectors && npm run build --workspace=@repo/orchestrator && npm run build --workspace=@repo/api && npm run build --workspace=@repo/web",
+    "typecheck": "npm run typecheck --workspace=@repo/shared && npm run typecheck --workspace=@repo/connectors && npm run typecheck --workspace=@repo/orchestrator && npm run typecheck --workspace=@repo/api && npm run typecheck --workspace=@repo/web",
+    "lint": "npm run lint --workspace=@repo/shared && npm run lint --workspace=@repo/connectors && npm run lint --workspace=@repo/orchestrator && npm run lint --workspace=@repo/api && npm run lint --workspace=@repo/web",
+    "format": "prettier --write ."
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^7.18.0",
+    "@typescript-eslint/parser": "^7.18.0",
+    "eslint": "^8.57.1",
+    "eslint-config-prettier": "^9.1.0",
+    "prettier": "^3.3.3",
+    "typescript": "^5.6.3"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
